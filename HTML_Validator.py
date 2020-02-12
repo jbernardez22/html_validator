@@ -29,20 +29,20 @@ def _extract_tags(html):
     >>> _extract_tags('Python <strong>rocks</strong>!')
     ['<strong>', '</strong>']
     '''
-	list_of_tags = []
-	new_string = ""
-	for i in html:
-		if(html[i]=="<"):
-			counter = 1
-			new_string =  "<"
-			while(html[i+counter]!= ">"):
-				new_string = new_string + html[i+counter]
-				counter = counter + 1
-			new_string = new_string + ">"
-			list_of_tags.append(new_string)
-			new_string = ""
-	return list_of_tags
-				
-			
-			
+    list_of_tags = []
+    new_string = ""
+    for i in html:
+        if(html[i]=="<"):
+            counter = 1
+            new_string =  "<"
+            while(html[i+counter]!= ">"):
+                new_string = new_string + html[i+counter]
+                counter = counter + 1
+            new_string = new_string + ">"
+            list_of_tags.append(new_string)
+            new_string = ""
+    return list_of_tags
+                
+            
+            
 
