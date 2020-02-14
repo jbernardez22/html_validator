@@ -33,11 +33,11 @@ def _extract_tags(html):
     new_string = ""
     for i in html:
         if(html[i]=="<"):
-            counter = 1
+           # counter = 1
             new_string =  "<"
-            while(html[i+counter]!= ">"):
-                new_string = new_string + html[i+counter]
-                counter = counter + 1
+            while(html[i+1]!= ">"):
+                new_string = new_string + html[i]
+            #    counter = counter + 1
             new_string = new_string + ">"
             list_of_tags.append(new_string)
             new_string = ""
