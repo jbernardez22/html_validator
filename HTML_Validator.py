@@ -16,9 +16,12 @@ def validate_html(html):
         if (list_of_tags[i][1] != "/"):
             stack.append(list_of_tags[i])
         else:
-            top = stack.pop()
-            print(top)
-            if(top[1:-2] != list_of_tags[2:-2]):
+            if(stack != []):
+                top = stack.pop()
+                print(top)
+                if(top[1:-2] != list_of_tags[2:-2]):
+                    return False
+            else:
                 return False
     if(stack != []):
         return False 
