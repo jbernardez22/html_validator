@@ -10,6 +10,25 @@ def validate_html(html):
     >>> validate_html('<strong>example')
     False
     '''
+    list_of_tags = _extract_tags(html)
+    stack = []
+    for i in list_of_tags:
+        if (list_of_tags[i[1]] != "/"):
+            stack.append(list_of_tags[i])
+        else:
+            top = stack.pop()
+            if(top[1:-2] != list_of_tags[2:-2]):
+                return False
+    if(stack != []):
+        return False 
+    return True
+
+        # if opening add to stack
+        #if not an opening, pop top of the stack, compare string in opening to string in closing tag
+        # if the same, pop off the top
+        # if not the same, return false
+        #outside the for loop return false 
+        
 
     # HINT:
     # use the _extract_tags function below to generate a list of html tags without any extra text;
