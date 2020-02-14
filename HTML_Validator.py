@@ -13,7 +13,7 @@ def validate_html(html):
     list_of_tags = _extract_tags(html)
     stack = []
     for i in list_of_tags:
-        if (list_of_tags[i[1]] != "/"):
+        if (list_of_tags[i][1] != "/"):
             stack.append(list_of_tags[i])
         else:
             top = stack.pop()
@@ -51,7 +51,6 @@ def _extract_tags(html):
     list_of_tags = []
     new_string = ""
     for i in range(len(html)):
-        print(i)
         if(html[i]=="<"):
             counter = 0 
           #  new_string =  "<"
@@ -64,5 +63,5 @@ def _extract_tags(html):
             new_string = ""
     return list_of_tags
                            
-print(_extract_tags('Python <strong>rocks</strong>!'))
+
 
