@@ -50,18 +50,19 @@ def _extract_tags(html):
     '''
     list_of_tags = []
     new_string = ""
-    for i in html:
+    for i in range(len(html)):
+        print(i)
         if(html[i]=="<"):
-           # counter = 1
-            new_string =  "<"
-            while(html[i+1]!= ">"):
-                new_string = new_string + html[i]
-            #    counter = counter + 1
+            counter = 0 
+          #  new_string =  "<"
+            while(html[i+counter]!=">"):
+           # if(html[i+1]!= ">"):
+                new_string = new_string + html[i+counter]
+                counter +=1 
             new_string = new_string + ">"
             list_of_tags.append(new_string)
             new_string = ""
     return list_of_tags
-                
-            
-            
+                           
+print(_extract_tags('Python <strong>rocks</strong>!'))
 
