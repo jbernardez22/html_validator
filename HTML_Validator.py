@@ -12,8 +12,8 @@ def validate_html(html):
     '''
     list_of_tags = _extract_tags(html)
     stack = []
-    for i in list_of_tags:
-        if (list_of_tags[i][1] != "/"):
+    for i in range(list_of_tags):
+        if (list_of_tags)[i][1] != "/"):
             stack.append(list_of_tags[i])
         else:
             top = stack.pop()
