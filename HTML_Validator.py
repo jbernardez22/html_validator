@@ -14,12 +14,15 @@ def validate_html(html):
     stack = []
     for i in range(len(list_of_tags)):
         if (list_of_tags[i][1] != "/"):
+            print("inside if")
             stack.append(list_of_tags[i])
         else:
             if(stack != []):
                 top = stack.pop()
                 print(top)
-                if(top[1:-2] != list_of_tags[2:-2]):
+                if(top[1:-1] != list_of_tags[i][2:-1]):
+                    print(top[1:-1])
+                    print(list_of_tags[i][2:-1])
                     return False
             else:
                 return False
@@ -67,5 +70,6 @@ def _extract_tags(html):
             new_string = ""
     return list_of_tags
                            
+print(validate_html('<a></a>'))
 
 
